@@ -7,7 +7,10 @@ CORS(
   app,
   resources={
     r"/api/*": {
-        "origins": ['http://localhost:3000'],
+        "origins": [
+            'http://dev.localhost.com:3000',
+            'https://dev.localhost.com:3000',
+        ],
     }
   },
   supports_credentials=True,
@@ -19,7 +22,7 @@ def ping():
     response.set_cookie(
       key='token',
       value='example-token',
-      domain='127.0.0.1',
+      domain='dev.localhost.com',
       path='/'
     )
     return response
